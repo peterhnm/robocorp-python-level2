@@ -58,9 +58,9 @@ def fill_and_submit_order_form(order_data: dict[int | str]):
 
 def download_and_read_csv_data() -> Table:
     """
-    Download the order data and read it.
+    Get the order data from a CSV file but do not save it to disk.
 
-    Returns: Order data as a Table.
+    :return: Order data as a Table.
     """
     http = HTTP()
     res = http.download(
@@ -87,9 +87,9 @@ def download_and_read_csv_data() -> Table:
 
 def take_screenshot(order_no: int, out_path: str) -> str:
     """
-    Take a screenshot of the order.
+    Take a screenshot of the ordered robot.
 
-    Returns: The Filename of the screenshot.
+    :return: The Filename of the screenshot.
     """
     filename = f"order-{order_no}.png"
     images = browser.get_webelements("css:div#robot-preview-image img")
@@ -114,7 +114,7 @@ def export_order_as_pdf(order_no: int, out_path: str) -> str:
     """
     Export the order as PDF.
 
-    Returns: The Filename of the PDF.
+    :return: The Filename of the PDF.
     """
     sales_results_html = browser.get_element_attribute("id:receipt", "outerHTML")
     filename = f"order-{order_no}.pdf"
