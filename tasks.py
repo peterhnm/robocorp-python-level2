@@ -69,8 +69,6 @@ def download_and_read_csv_data() -> Table:
     csv_reader = DictReader(res.text.split("\n"), delimiter=",")
     csv = list(csv_reader)
     table = Tables()
-    data_table = table.create_table(csv)
-    data_table_2 = table.read_table_from_csv("orders.csv")
     return table.create_table(csv)
 
 
