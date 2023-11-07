@@ -63,9 +63,7 @@ def download_and_read_csv_data() -> Table:
     :return: Order data as a Table.
     """
     http = HTTP()
-    res = http.download(
-        "https://robotsparebinindustries.com/orders.csv", target_file="orders.csv"
-    )
+    res = http.download("https://robotsparebinindustries.com/orders.csv")
     csv_reader = DictReader(res.text.split("\n"), delimiter=",")
     csv = list(csv_reader)
     table = Tables()
